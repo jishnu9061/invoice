@@ -20,7 +20,9 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        //
+        $invoices = Invoice::latest()->paginate(10);
+        $slot = 'Invoice List';
+        return view('pages.invoices.index',compact('invoices','slot'));
     }
 
     /**
